@@ -30,7 +30,7 @@
                             @if (!empty($user->avatar_file_name))
                                 <img src="/storage/avatars/{{ $user->avatar_file_name }}" class="rounded-circle" style="object-fit: cover;width:200px;height:200px" alt="">
                             @else
-                                <img src="/images/avatar-default.svg" class="rouded-circle" style="object-fit: cover; width:200px;height:200px" alt="">
+                                <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width:200px;height:200px" alt="">
                             @endif
                         </label>
                     </span>
