@@ -60,7 +60,21 @@
 
                     <div class="form-group mt-3">
                         <label for="category">カテゴリ</label>
-                        <select name="category" class="custom-select form-control @error('category')is-invalid @enderror" id="category"></select>
+                        <select name="category" class="custom-select form-control @error('category')is-invalid @enderror" id="category">
+                        @foreach ($categories as $category)
+                            <optgroup label="{{$category->name}}">
+                                @foreach ($category->secondaryCategories as $secondary)
+                                    <option value="{{ $secondary->id }}" {{old('category') == $secondary->id ? 'selected': ''}}>
+                                        {{ $secondary->name }}
+                                    </option>
+                                @endforeach
+                            </optgroup>
+                        @endforeach
+
+
+                        </select>
+
+
                         @error('category')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -70,7 +84,15 @@
 
                    <div class="form-group mt-3">
                         <label for="condition">商品の状態</label>
-                        <select name="condition" class="custom-select form-control @error('condition')is-invalid @enderror" id="condition"></select>
+                        <select name="condition" class="custom-select form-control @error('condition')is-invalid @enderror" id="condition">
+                        @foreach ($conditions as $condition)
+                            <option value="{{ $condition->id }}" {{ old('condition') == $condition->id ? 'selected' : '' }}>
+                                {{ $condition->name }}
+                            </option>
+                        @endforeach
+
+
+                        </select>
                         @error('condition')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
