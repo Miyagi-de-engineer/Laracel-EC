@@ -17,7 +17,6 @@ Route::get('', 'ItemsController@showItems')->name('top');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('items/{item}', 'ItemsController@showItemDetail')->name('item');
 
 Route::middleware('auth')
@@ -34,6 +33,6 @@ Route::prefix('mypage')
     ->group(function () {
         Route::get('edit-profile', 'ProfileController@showProfileEditForm')->name('mypage.edit-profile');
         Route::post('edit-profile', 'ProfileController@editProfile')->name('mypage.edit-profile');
-        Route::get('bought_items', 'BoughtItemsController@showBoughtItems')->name('mypage.bought-items');
+        Route::get('bought-items', 'BoughtItemsController@showBoughtItems')->name('mypage.bought-items');
         Route::get('sold-items', 'SoldItemsController@showSoldItems')->name('mypage.sold-items');
     });

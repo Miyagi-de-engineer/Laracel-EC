@@ -11,6 +11,10 @@ class Item extends Model
     // 購入済み
     const STATE_BOUGHT = 'bought';
 
+    protected $casts = [
+        'bought_at' => 'datetime'
+    ];
+
     public function secondaryCategory()
     {
         return $this->belongsTo(SecondaryCategory::class);
@@ -29,5 +33,10 @@ class Item extends Model
     public function getIsStateSellingAttribute()
     {
         return $this->state === self::STATE_SELLING;
+    }
+
+    public function getIsStateBoughtAttribute()
+    {
+        return $this->state === self::STATE_BOUGHT;
     }
 }
