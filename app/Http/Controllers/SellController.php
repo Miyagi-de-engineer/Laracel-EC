@@ -36,7 +36,7 @@ class SellController extends Controller
     {
         $user = Auth::user();
 
-        $imageName = $this->saveImage($request->file('item-image'));
+        $imageName = $this->base64_encode(file_get_contents($request->image->getRealPath()));
 
         $item                        = new Item();
         $item->image_file_name       = $imageName;

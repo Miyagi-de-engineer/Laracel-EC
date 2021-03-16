@@ -11,7 +11,8 @@
             <div class="col-3 mb-3">
                 <div class="card">
                     <div class="position-relative overflow-hidden">
-                        <img src="/storage/item-images/{{$item->image_file_name}}" alt="" class="card-img-top">
+                        {{-- <img src="/storage/item-images/{{$item->image_file_name}}" alt="" class="card-img-top"> --}}
+                        <img src="data:image/png;base64,<?= $item->image_file_name ?>" alt="" class="card-img-top">
                         <div class="position-absolute py-2 px-3" style="left: 0;bottom:20px;color:white;background-color:rgba(0, 0, 0, 0.7)">
                             <i class="fas fa-yen-sign"></i>
                             <span class="ml-1">{{number_format($item->price)}}</span>
